@@ -1,0 +1,25 @@
+//
+.error {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    a {
+      text-decoration: none;
+      p {
+        border: 1px solid #7a63ff;
+        padding: 10px;
+        color: #7a63ff;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
