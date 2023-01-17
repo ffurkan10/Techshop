@@ -7,6 +7,8 @@ import { addToCart } from "../../features/CartSlice";
 import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import Pagination from "../../components/pagination/Pagination";
+import { addFavorite } from "../../features/FavoriteSlice";
+import * as AiIcons from "react-icons/ai";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,10 @@ const Home = () => {
 
   const handleAdd = (list) => {
     dispatch(addToCart(list));
+  };
+
+  const handleFavorite = (list) => {
+    dispatch(addFavorite(list));
   };
 
   if (status === "failed") {
@@ -63,7 +69,23 @@ const Home = () => {
                     <span>({list?.ratingCount})</span>
                   </div>
                 </Link>
-                <button onClick={() => handleAdd(list)}>Add To Cart</button>
+                <div className="itemlist__container__main__card__buttons">
+                  <button
+                    className="itemlist__container__main__card__buttons__add"
+                    onClick={() => handleAdd(list)}
+                  >
+                    Add To Cart
+                  </button>
+
+                  <button
+                    className="itemlist__container__main__card__buttons__fav"
+                    onClick={() => handleFavorite(list)}
+                  >
+                    <span>
+                      <AiIcons.AiFillHeart />
+                    </span>
+                  </button>
+                </div>
               </li>
             ))}
           </ul>

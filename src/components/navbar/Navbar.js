@@ -47,6 +47,12 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="navbar__container__menu__card__ul__li">
+                <Link to="/favorites">
+                  <AiIcons.AiOutlineHeart size={"25px"} />
+                  <p>Favorites</p>
+                </Link>
+              </li>
+              <li className="navbar__container__menu__card__ul__li">
                 <Link to="/Cart">
                   <button>
                     <BsHandbag />

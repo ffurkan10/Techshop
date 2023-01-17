@@ -43,16 +43,33 @@ $breakpoints: (
         outline: none;
         padding: 20px;
 
-        button {
-          background-color: #1e1e1e;
-          color: white;
-          cursor: pointer;
-          border: none;
-          height: 40px;
-          border-radius: 10px;
-          &:hover {
-            transition: all 0.2s ease-in;
-            background-color: #7a63ff;
+        &__buttons {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          &__add {
+            width: 85%;
+            background-color: #1e1e1e;
+            color: white;
+            cursor: pointer;
+            border: none;
+            height: 40px;
+            border-radius: 10px;
+            &:hover {
+              transition: all 0.2s ease-in;
+              background-color: #7a63ff;
+            }
+          }
+          &__fav {
+            outline: none;
+            border: none;
+            background-color: transparent;
+            color: #1e1e1e;
+            cursor: pointer;
+            font-size: 30px;
+            &:active {
+              color: red;
+            }
           }
         }
         &__img {

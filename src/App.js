@@ -12,6 +12,7 @@ import Profile from "./pages/profile/Profile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer/Footer";
+import Favorites from "./pages/favorites/Favorites";
 
 function App() {
   return (
@@ -39,6 +40,8 @@ function App() {
                 <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/sign-in" element={<SignIn />} />
               </Route>
+
+              <Route path="/favorites" element={<Favorites />} />
             </Routes>
           </section>
           <footer className="App__footer">
