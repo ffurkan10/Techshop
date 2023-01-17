@@ -17,6 +17,12 @@ $breakpoints: (
 .navbar {
   background-color: #1e1e1e;
   margin-bottom: 20px;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  overflow: hidden;
+
   &__container {
     max-width: 1400px;
     margin: 0 auto;
@@ -90,7 +96,7 @@ $breakpoints: (
           &__ul {
             transition: 350ms;
             top: 105px;
-            right: -300px;
+            right: -1000px;
             position: fixed;
             overflow: hidden;
 

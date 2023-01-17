@@ -6,7 +6,6 @@ import { BsHandbag } from "react-icons/bs";
 import logo from "./logo.jpeg";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import CgProfile from "react-icons/cg";
 import { useState } from "react";
 
 const Navbar = () => {
