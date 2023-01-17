@@ -54,7 +54,7 @@ $breakpoints: (
         }
       }
       &__feature {
-        width: calc(50% - 20px);
+        width: calc(35% - 20px);
         display: flex;
         flex-direction: column;
         padding: 10px;
@@ -85,7 +85,6 @@ $breakpoints: (
           align-items: center;
           margin-bottom: 40px;
           span {
-            margin: 5px;
             color: #555555;
           }
         }
