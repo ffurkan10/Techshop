@@ -1,4 +1,19 @@
 //
+$breakpoints: (
+  "xs": 36em,
+  "sm": 48em,
+  "md": 62em,
+  "lg": 75em,
+  "xl": 87.5em,
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
 .navbar {
   background-color: #1e1e1e;
   margin-bottom: 20px;
@@ -19,37 +34,99 @@
         width: 100%;
       }
     }
-
-    &__cart {
+    &__menu {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      ul {
-        display: flex;
-        align-items: center;
-        li {
-          list-style-type: none;
-          width: 70px;
+      &__hamburger {
+        display: none;
+        font-size: 20px;
+      }
+      &__card {
+        &__ul {
           display: flex;
           align-items: center;
-          p {
-            font-size: 16px;
-            &:hover {
+          &__li {
+            list-style-type: none;
+            justify-content: center;
+            text-align: center;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            p {
+              font-size: 16px;
+              &:hover {
+                color: #7a63ff;
+                transition: all 0.2s ease-in-out;
+              }
+            }
+            span {
               color: #7a63ff;
-              transition: all 0.2s ease-in-out;
+            }
+            button {
+              font-size: 25px;
+              background-color: transparent;
+              outline: none;
+              border: none;
+              color: white;
+              cursor: pointer;
             }
           }
-          span {
-            color: #7a63ff;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .navbar {
+    &__container {
+      &__menu {
+        display: flex;
+        flex-direction: column-reverse;
+
+        &__card {
+          flex-direction: column;
+          &__ul {
+            transition: 350ms;
+            top: 105px;
+            right: -300px;
+            position: fixed;
+            overflow: hidden;
+
+            &__li {
+              padding: 10px;
+              width: 300px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            &__active {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: fixed;
+              right: 0;
+              top: 105px;
+              background-color: #1e1e1e;
+              width: 100%;
+              padding: 10px;
+              transition: 350ms;
+
+              a {
+                display: flex;
+                align-items: center;
+                p {
+                  font-size: 18px;
+                  margin-left: 10px;
+                }
+              }
+            }
           }
-          button {
-            font-size: 25px;
-            background-color: transparent;
-            outline: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-          }
+        }
+        &__hamburger {
+          display: block;
+          z-index: 999;
         }
       }
     }
