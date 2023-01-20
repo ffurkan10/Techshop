@@ -96,7 +96,7 @@ $breakpoints: (
           &__ul {
             transition: 350ms;
             top: 105px;
-            right: -1000px;
+            right: -100%;
             position: fixed;
             overflow: hidden;
 
