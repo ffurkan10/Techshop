@@ -3,15 +3,16 @@ import axios from "axios";
 
 const initialState = {
   data: [],
-  currentPage: 0,
-  totalPages: 0,
+  currentPage: 0, //geçerli sayfa numarasını tutar
+  totalPages: 0, // toplam sayfa sayısını tutar
   status: "idle",
 };
 
 export const fetchItem = createAsyncThunk("fetchItem", async (page) => {
+  // axios kütüphanesini kullanarak API'ye bir GET isteği yapan bir Redux Toolkit async thunk aksiyonu
   const response = await axios.get(
     `https://mern-ecommerce-backend-ten.vercel.app/api/products?page=${page}`
-  );
+  ); // API yanıtındaki ürün verilerini ve toplam sayfa sayısını döndürür.
   return {
     products: response.data.products,
     totalPages: response.data.totalPages,
@@ -24,9 +25,6 @@ const ItemSlice = createSlice({
   reducers: {
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload;
-    },
-    remove: (state, action) => {
-      state.data = state.data.filter((item) => item.id !== action.payload);
     },
   },
   extraReducers: (builder) => {

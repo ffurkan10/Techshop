@@ -11,12 +11,13 @@ const FavoriteSlice = createSlice({
   reducers: {
     addFavorite(state, action) {
       const itemFavorite = state.favorites.find(
+        // state içerisindeki "favorites" dizisinde action payload'ının id'sine eşit olan bir eleman bulunur.
         (item) => item.id === action.payload.id
       );
       if (itemFavorite) {
         return;
       } else {
-        state.favorites.push({ ...action.payload });
+        state.favorites.push({ ...action.payload }); // action payload'ındaki verilerle birlikte yeni bir eleman "favorites" dizisine eklendi
         toast.success(`${action.payload.name} added to favorites`);
       }
       localStorage.setItem("favorites", JSON.stringify(state.favorites));

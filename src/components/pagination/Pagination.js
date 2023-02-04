@@ -7,13 +7,15 @@ function Pagination() {
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.data.currentPage);
   const totalPages = useSelector((state) => state.data.totalPages);
-  const [page, setPage] = useState(currentPage);
+  const [page, setPage] = useState(currentPage); //sayfanın geçerli numarasının başlangıç değerini ayarlar.
 
   useEffect(() => {
+    // currentPage değerinde bir değişiklik olduğunda, page değişkeninin değerini günceller.
     setPage(currentPage);
   }, [currentPage]);
 
   const handlePageChange = (page) => {
+    // seçilen sayfanın numarasını ve verilerini günceller.
     setPage(page);
     dispatch(setCurrentPage(page));
     dispatch(fetchItem(page));

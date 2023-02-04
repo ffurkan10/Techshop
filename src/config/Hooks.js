@@ -7,7 +7,8 @@ export const UseCurrentUser = () => {
 
   useEffect(() => {
     return onAuthStateChanged(auth, (user) => {
-      setUser(user);
+      // onAuthStateChanged metodunu kullanarak, mevcut giriş yapmış olan kullanıcıyı takip etmek için bir state
+      setUser(user); // kullanıcı giriş yapmış ise, state'e giriş yapmış olan kullanıcı bilgileri atanır.
     });
   }, []);
 
@@ -18,8 +19,9 @@ export const useIsLoggedIn = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
   useEffect(() => {
+    // oturum durumunun değiştiğinde state'i güncellemeyi amaçlar.
     return onAuthStateChanged(auth, (user) => {
-      setIsLoggedIn(!!user);
+      setIsLoggedIn(!!user); // !!user işleminin sonucu, user değişkeninin null veya undefined değilse true, değilse false olmalı
     });
   }, []);
 
