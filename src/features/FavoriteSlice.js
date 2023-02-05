@@ -24,9 +24,10 @@ const FavoriteSlice = createSlice({
     },
     removeFavorite(state, action) {
       const itemFavorite = state.favorites.filter(
+        //"favorites" dizisinde action payload'ının id'sine eşit olmayan elemanları bulunur
         (item) => item.id !== action.payload.id
       );
-      state.favorites = itemFavorite;
+      state.favorites = itemFavorite; // state içerisindeki "favorites" değişkenine eşitlenir.
       toast.success(`${action.payload.name} removed from favorites`);
       localStorage.setItem("favorites", JSON.stringify(state.favorites));
     },
